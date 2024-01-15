@@ -1,6 +1,13 @@
 import React from "react";
 import "./movingNoise.css";
-import useSkillInView from "./useSkillIn";
+import { useInView } from "react-intersection-observer";
+
+const useSkillInView = () => {
+  return useInView({
+    threshold: 1,
+    delay: 0,
+  });
+};
 
 const Skills = () => {
   const skillsData = [
@@ -21,25 +28,31 @@ const Skills = () => {
           const { ref, inView } = useSkillInView();
 
           return (
-            <div
-              className="skills flex flex-col text-white items-center text-center"
+            <SkillComponent
               key={index}
-            >
-              <div></div>
-              <div className="skill-title">{skill.title}</div>
-              <div className="bar">
-                <div
-                  ref={ref}
-                  className={`bar-color ${inView ? "animate-width" : ""}`}
-                  style={{ width: inView ? `${skill.percent}%` : "0%" }}
-                ></div>
-              </div>
-            </div>
+              skill={skill}
+              ref={ref}
+              inView={inView}
+            />
           );
         })}
       </div>
     </div>
   );
 };
+
+const SkillComponent = ({ skill, ref, inView }: any) => (
+  <div className="skills flex flex-col text-white items-center text-center">
+    <div></div>
+    <div className="skill-title">{skill.title}</div>
+    <div className="bar">
+      <div
+        ref={ref}
+        className={`bar-color ${inView ? "animate-width" : ""}`}
+        style={{ width: inView ? `${skill.percent}%` : "0%" }}
+      ></div>
+    </div>
+  </div>
+);
 
 export default Skills;
