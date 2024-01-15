@@ -2,6 +2,13 @@ import React from "react";
 import "./movingNoise.css";
 import { useInView } from "react-intersection-observer";
 
+const useSkillInView = () => {
+  return useInView({
+    threshold: 1,
+    delay: 0,
+  });
+};
+
 const Skills = () => {
   const skillsData = [
     { title: "Html", percent: 99 },
@@ -18,11 +25,7 @@ const Skills = () => {
       <div className="progress-bar text-center flex h-screen max-lg:h-max">
         <h1 className="text-4xl overflow-hidden mb-5 lg:mb-0">הכלים שלי</h1>
         {skillsData.map((skill, index) => {
-          // useInView hook inside the map function
-          const { ref, inView } = useInView({
-            threshold: 1,
-            delay: 0,
-          });
+          const { ref, inView } = useSkillInView();
 
           return (
             <div
@@ -33,7 +36,7 @@ const Skills = () => {
               <div className="skill-title">{skill.title}</div>
               <div className="bar">
                 <div
-                  ref={ref} // Use the ref here
+                  ref={ref}
                   className={`bar-color ${inView ? "animate-width" : ""}`}
                   style={{ width: inView ? `${skill.percent}%` : "0%" }}
                 ></div>
