@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import "./movingNoise.css";
 import { useInView } from "react-intersection-observer";
