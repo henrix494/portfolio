@@ -1,0 +1,49 @@
+.progress-bar {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column wrap;
+  flex-flow: column wrap;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.progress-bar h1 {
+  text-align: center;
+  color: white;
+}
+
+.skills {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.bar {
+  width: 250px;
+  background: #ddd;
+  margin-left: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 900px) {
+  .bar {
+    width: 400px;
+  }
+}
+
+.skill-title {
+  width: 59px;
+  font-weight: bold;
+}
+
+.bar-color {
+  width: 0%;
+  background: black;
+  height: 100%;
+  border-radius: 10px;
+  -webkit-transition: all 0.7s linear;
+  transition: all 0.7s linear;
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
