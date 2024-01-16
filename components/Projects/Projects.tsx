@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useState, MouseEvent } from "react";
 import Model from "./Model";
+import Marquee from "react-fast-marquee";
+
 interface Element {
   id: string;
   imageSrc: string;
@@ -87,45 +89,71 @@ export default function Projects() {
   };
   return (
     <div className="bg-white  relative h-screen max-lg:hidden">
-      {elements.map(({ id, imageSrc, time, title, des, stack }) => (
-        <div key={id} className="text-black cursor-pointer">
-          <Model
-            model={isModel}
-            modelHandler={modelHandler}
-            imageSrc={selectedImage || ""}
-          />
-          <div
-            className={`border-b-2 border-black h-[150px] pr-10`}
-            onMouseMove={(e) => handleMouseMove(e)}
-            onMouseEnter={() => handleHover(id, true)}
-            onMouseLeave={() => handleHover(id, false)}
-            onClick={() => imageClickHandler(imageSrc)}
-          >
-            <div className="h-full flex justify-around items-center">
-              <div className="flex flex-col justify-center h-full w-[600px]">
-                <p className="text-[#eda5b7]">{time}</p>
-                <p className="text-4xl overflow-hidden">{title}</p>
-                <p>{des}</p>
+      <div className="flex">
+        <div className="flex flex-col w-[70%] border-l-2 border-black ">
+          {elements.map(({ id, imageSrc, time, title, des, stack }) => (
+            <div key={id} className="text-black cursor-pointer   ">
+              <Model
+                model={isModel}
+                modelHandler={modelHandler}
+                imageSrc={selectedImage || ""}
+              />
+              <div
+                className={`border-b-2 border-black h-[150px] pr-10`}
+                onMouseMove={(e) => handleMouseMove(e)}
+                onMouseEnter={() => handleHover(id, true)}
+                onMouseLeave={() => handleHover(id, false)}
+                onClick={() => imageClickHandler(imageSrc)}
+              >
+                <div className="h-full flex justify-around items-center">
+                  <div className="flex flex-col justify-center h-full w-[600px]">
+                    <p className="text-[#eda5b7]">{time}</p>
+                    <p className="text-4xl overflow-hidden">{title}</p>
+                    <p>{des}</p>
+                  </div>
+                  <div>
+                    <p className="text-[#b4b4b4] text-3xl">{stack}</p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <p className="text-[#b4b4b4] text-3xl">{stack}</p>
-              </div>
+              <Image
+                src={imageSrc}
+                width={400}
+                height={400}
+                className={` ${hoverStates[id] ? " fixed" : " hidden"}`}
+                alt="page"
+                style={{
+                  position: "fixed",
+                  top: mousePosition.y + 50,
+                  left: mousePosition.x,
+                }}
+              />
             </div>
-          </div>
-          <Image
-            src={imageSrc}
-            width={400}
-            height={400}
-            className={` ${hoverStates[id] ? " fixed" : " hidden"}`}
-            alt="page"
-            style={{
-              position: "fixed",
-              top: mousePosition.y + 50,
-              left: mousePosition.x,
-            }}
-          />
+          ))}
         </div>
-      ))}
+        <div className=" w-[30%]   flex flex-col">
+          <div className="border-b-2 border-black">
+            <h1 className="text-center text-8xl overflow-hidden  h-[148px] ">
+              השכלה
+            </h1>
+          </div>
+          <div className="border-b-2 border-black">
+            <h1 className="text-center text-8xl overflow-hidden  h-[148px] ">
+              השכלה
+            </h1>
+          </div>
+          <div className="border-b-2 border-black">
+            <h1 className="text-center text-8xl overflow-hidden  h-[148px] ">
+              השכלה
+            </h1>
+          </div>
+          <div className=" mt-24">
+            <h1 className="text-center text-8xl overflow-hidden  ">
+              המשך יבוא
+            </h1>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
