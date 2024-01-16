@@ -9,6 +9,7 @@ export default function Home() {
       <Hero />
       <AboutMe />
       <Projects />
+      <div className="h-[200px] bg-white"></div>
     </main>
   );
 }

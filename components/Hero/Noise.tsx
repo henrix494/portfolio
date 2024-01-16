@@ -1,4 +1,4 @@
 import "./noise.css";
 export default function Noise() {
-  return <div className="noise w-screen "></div>;
+  return <div className="noise w-screen overflow-hidden "></div>;
 }
