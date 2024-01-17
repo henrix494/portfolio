@@ -16,11 +16,11 @@ export const MobilePro = () => {
     delay: 0,
   });
   const { ref: ref3, inView: inView3 } = useInView({
-    threshold: 0.3,
+    threshold: 0,
     delay: 0,
   });
   const { ref: ref4, inView: inView4 } = useInView({
-    threshold: 0.3,
+    threshold: 0,
     delay: 0,
   });
   return (
@@ -38,7 +38,7 @@ export const MobilePro = () => {
         <div
           ref={ref1}
           className={`${
-            inView1 ? " translate-x-[0%]" : "translate-x-[-50%]"
+            inView1 ? " translate-x-[0%]" : "translate-x-[-100%]"
           }   transition-all duration-[1s] mt-10 `}
         >
           <Image
@@ -51,7 +51,7 @@ export const MobilePro = () => {
         <div
           ref={ref2}
           className={`${
-            inView2 ? " translate-x-[0%]" : "translate-x-[50%]"
+            inView2 ? " translate-x-[0%]" : "translate-x-[100%]"
           } transition-all duration-[1s] mt-10 `}
         >
           <Image
@@ -64,7 +64,7 @@ export const MobilePro = () => {
         <div
           ref={ref3}
           className={`${
-            inView3 ? " translate-x-[0%]" : "translate-x-[-50%]"
+            inView3 ? " translate-x-[0%]" : "translate-x-[-100%]"
           } text-center text-8xl overflow-hidden relative transition-all duration-[1s] mt-10 `}
         >
           <Image
@@ -77,7 +77,7 @@ export const MobilePro = () => {
         <div
           ref={ref4}
           className={`${
-            inView4 ? " translate-x-[0%]" : "translate-x-[50%]"
+            inView4 ? " translate-x-[0%]" : "translate-x-[100%]"
           } text-center text-8xl overflow-hidden relative transition-all duration-[1s] mt-10 `}
         >
           <Image
