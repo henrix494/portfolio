@@ -35,7 +35,7 @@ export default function AboutMe() {
   });
 
   return (
-    <div className="relative bg-[#212529] h-screen flex flex-col max-lg:h-max max-lg:text-center max-lg:static  overflow-hidden">
+    <div className="relative bg-[#212529] h-screen flex flex-col max-lg:h-max max-lg:text-center max-lg:relative  overflow-hidden">
       <div
         className="flex justify-center text-white mt-40 mb-20 max-lg:mt-5 "
         ref={ref0}
