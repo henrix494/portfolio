@@ -19,7 +19,7 @@ const SkillComponent = ({ skill }: any) => {
       <div className="bar">
         <div
           ref={ref}
-          className={`bar-color ${inView ? "animate-width" : ""}`}
+          className={`bar-color}`}
           style={{ width: inView ? `${skill.percent}%` : "0%" }}
         ></div>
       </div>
