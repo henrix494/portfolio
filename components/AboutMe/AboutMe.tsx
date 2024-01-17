@@ -48,7 +48,7 @@ export default function AboutMe() {
           היי
         </h2>
       </div>
-      <div className="flex justify-center flex-col items-center text-8xl gap-4 transition-all ">
+      <div className="flex justify-center flex-col items-center text-8xl gap-4 transition-all font-serif ">
         <div
           className={`text-white transition-all duration-[5s] text-4xl lg:text-6xl overflow-hidden    ${
             inView1 ? ` opacity-100` : "opacity-0"
@@ -107,7 +107,7 @@ export default function AboutMe() {
         ref={ref5}
         className={`${
           inView5 ? " opacity-100" : " opacity-0"
-        }  absolute bottom-[-10%] w-[800px]   transition-all duration-[3s]  h-[300px] left-1/2 translate-x-[-50%] z-[2000] max-lg:hidden  `}
+        }  absolute bottom-[-20%] w-[800px]   transition-all duration-[3s]  h-[300px] left-1/2 translate-x-[-50%] z-[2000] max-lg:hidden  `}
         src={icon}
         alt=""
       />

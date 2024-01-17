@@ -39,8 +39,8 @@ const Skills = () => {
   ];
 
   return (
-    <div className="lg:mt-0 max-lg:mt-10">
-      <div className="progress-bar text-center flex h-screen max-lg:h-max">
+    <div className="lg:mt-0 max-lg:mt-10 border-t-2 pt-4 border-[#00000095]">
+      <div className="progress-bar text-center flex h-screen max-lg:h-max max-lg:gap-5">
         <h1 className="text-4xl overflow-hidden mb-5 lg:mb-0">הכלים שלי</h1>
         {skillsData.map((skill, index) => (
           <SkillComponent key={index} skill={skill} />
