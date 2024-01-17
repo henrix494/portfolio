@@ -35,7 +35,7 @@ export default function AboutMe() {
   });
 
   return (
-    <div className="relative bg-[#212529] h-screen flex flex-col max-lg:h-max max-lg:text-center  overflow-hidden">
+    <div className="relative bg-[#212529] h-screen flex flex-col max-lg:h-max max-lg:text-center max-lg:static  overflow-hidden">
       <div
         className="flex justify-center text-white mt-40 mb-20 max-lg:mt-5 "
         ref={ref0}
@@ -83,7 +83,7 @@ export default function AboutMe() {
         </div>
       </div>
 
-      <div className=" z-50 absolute left-0 top-1/2 translate-y-[-50%] max-lg:relative max-lg:translate-y-0 text-sm">
+      <div className=" z-50 absolute left-0 top-1/2 translate-y-[-50%] max-lg:static max-lg:translate-y-0 text-sm ">
         <Skilss />
       </div>
 
@@ -96,7 +96,7 @@ export default function AboutMe() {
           className="z-[50] relative"
         />
       </div>
-      <div className=" absolute top-0  lg:h-screen h-full overflow-hidden">
+      <div className=" absolute top-0   h-full overflow-hidden">
         {" "}
         <div className=" opacity-25  ">
           {" "}
