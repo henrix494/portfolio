@@ -3,6 +3,7 @@ import NavBar from "@/components/Navbar/NavBar";
 import AboutMe from "@/components/AboutMe/AboutMe";
 import Projects from "@/components/Projects/Projects";
 import { MobilePro } from "@/components/Projects/MobilePro";
+import Contact from "@/components/Contact/Contact";
 export default function Home() {
   return (
     <main className="">
@@ -11,6 +12,7 @@ export default function Home() {
       <AboutMe />
       <Projects />
       <MobilePro />
+      <Contact />
     </main>
   );
 }

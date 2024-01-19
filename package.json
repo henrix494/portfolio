@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.0",
     "@vercel/analytics": "^1.1.1",
     "framer-motion": "^10.17.11",
+    "gsap": "^3.12.5",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",

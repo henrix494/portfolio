@@ -1,5 +1,8 @@
 "use client";
 import { useInView } from "react-intersection-observer";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import Noise from "../Hero/Noise";
 export const MobilePro = () => {
@@ -23,6 +26,9 @@ export const MobilePro = () => {
     threshold: 0,
     delay: 0,
   });
+  useGSAP(() => {
+    gsap.to("test", { rotation: 180 });
+  });
   return (
     <div className=" lg:hidden bg-white relative h-screen overflow-hidden max-lg:h-max">
       <div className="z-30 relative flex flex-col gap-10 items-center ">
@@ -37,7 +43,7 @@ export const MobilePro = () => {
         </div>
         <div
           ref={ref1}
-          className={`${
+          className={`test ${
             inView1 ? " translate-x-[0%]" : "translate-x-[-100%]"
           }   transition-all duration-[1s] mt-10 `}
         >

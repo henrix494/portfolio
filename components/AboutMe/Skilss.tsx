@@ -1,29 +1,36 @@
-import React from "react";
+"use client";
+import React, { useRef, useEffect } from "react";
 import "./movingNoise.css";
-import { useInView } from "react-intersection-observer";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const useSkillInView = () => {
-  return useInView({
-    threshold: 1,
-    delay: 0,
-  });
-};
+gsap.registerPlugin(ScrollTrigger);
 
 const SkillComponent = ({ skill }: any) => {
-  const { ref, inView } = useSkillInView();
+  const skillRef = useRef(null);
+
+  useGSAP(() => {
+    const skillAnimation = gsap.timeline({
+      scrollTrigger: {
+        trigger: skillRef.current,
+        toggleActions: "play reset reset reset",
+      },
+    });
+
+    skillAnimation.to(skillRef.current, {
+      width: `${skill.percent}%`,
+      opacity: 1,
+      duration: 1,
+    });
+  });
 
   return (
     <div className="skills flex flex-col text-white items-center text-center">
-      <div></div>
       <div className="skill-title">{skill.title}</div>
-      <div className="bar">
-        <div
-          ref={ref}
-          className={`bar-color ${
-            inView ? `animate-width opacity-1` : "opacity-0"
-          }`}
-          style={{ width: "99%" }}
-        ></div>
+
+      <div className="bar ">
+        <div ref={skillRef} className={`bar-color  bg-[black]  `}></div>
       </div>
     </div>
   );
