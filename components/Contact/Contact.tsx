@@ -210,9 +210,19 @@ export default function Contact() {
             scale={20}
             blur={1.75}
             far={4.5}
-            color={props.open
-              .to([0, 1], ["rgba(0, 0, 0, 1)", "rgba(0, 0, 0, 1)"])
-              .to((val) => new THREE.Color(val))}
+            color={
+              props.open
+                ? (props.open
+                    .to(
+                      [0, 1],
+                      ["rgba(0, 0, 0, 0.4)", "rgba(255, 255, 255, 0.4)"]
+                    )
+                    .to(
+                      (val) =>
+                        new THREE.Color(val) as unknown as ColorRepresentation
+                    ) as unknown as ColorRepresentation)
+                : undefined!
+            }
           />
         </Canvas>
       </web.div>
