@@ -10,7 +10,10 @@ export default function AboutMe() {
   const { container, img } = useAnimation(); // Use the useAnimation hook
   const refs = useAnimation();
   return (
-    <div className="relative bg-[#212529] h-screen flex flex-col  max-xl:h-max max-xl:text-center max-xl:relative  overflow-hidden">
+    <div
+      id="AboutmeSec"
+      className="relative bg-[#212529] h-screen flex flex-col  max-xl:h-max max-xl:text-center max-xl:relative  overflow-hidden"
+    >
       <div
         className="flex justify-center text-white mt-40 mb-20 max-xl:mt-5 con opacity-0 "
         ref={container}

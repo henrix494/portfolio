@@ -40,7 +40,10 @@ export default function Projects() {
   };
 
   return (
-    <div className="bg-white relative   max-lg:hidden font-mono font-bold w-screen flex-shrink-0 section   ">
+    <div
+      className="bg-white relative   max-lg:hidden font-mono font-bold w-screen flex-shrink-0 section   "
+      id="ProjectSec"
+    >
       <div className="flex  ">
         <div className="flex flex-col w-[70%] border-l-2 border-black   ">
           {elements.map(({ id, imageSrc, time, title, des, stack }) => (

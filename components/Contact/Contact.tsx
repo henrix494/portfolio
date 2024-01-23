@@ -129,7 +129,8 @@ export default function Contact() {
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
   return (
-    <web.main
+    <web.div
+      id="ContactMeSec"
       style={{
         ...containerStyles,
         background: props.open.to([0, 1], ["#f0f0f0", "#000000"]),
@@ -249,6 +250,6 @@ export default function Contact() {
           />
         </Canvas>
       </web.div>
-    </web.main>
+    </web.div>
   );
 }
