@@ -7,7 +7,7 @@ import icon from "@/public/patternpad.svg";
 import { useAnimation } from "@/hooks/aboutMe";
 import { aboutMeText } from "@/const/aboutme/aboutme";
 export default function AboutMe() {
-  const { container } = useAnimation(); // Use the useAnimation hook
+  const { container, img } = useAnimation(); // Use the useAnimation hook
   const refs = useAnimation();
   return (
     <div className="relative bg-[#212529] h-screen flex flex-col  max-xl:h-max max-xl:text-center max-xl:relative  overflow-hidden">
@@ -57,9 +57,10 @@ export default function AboutMe() {
         </div>
       </div>
       <Image
+        ref={img}
         className={`
 
-         absolute bottom-[-20%] w-[800px]     h-[300px] left-1/2 translate-x-[-50%] z-[2000] max-xl:hidden  `}
+         absolute bottom-[-20%] w-[800px]     h-[300px] left-1/2 translate-x-[-50%] z-[2000] max-xl:hidden opacity-0  `}
         src={icon}
         alt=""
       />

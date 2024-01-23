@@ -94,9 +94,6 @@ export const MobilePro = () => {
           />
         </div>
       </div>
-      <div className=" absolute top-0 z-10 ">
-        <Noise />
-      </div>
     </div>
   );
 };

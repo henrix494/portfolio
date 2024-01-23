@@ -16,7 +16,7 @@
           )
           10%);
   filter: contrast(10) saturate(0);
-  height: 250vh;
+  height: 100vh;
   opacity: 0.16;
   overflow: hidden;
   position: relative;
@@ -75,13 +75,4 @@
 }
 .border-animation {
   position: relative;
-}
-
-.border {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 2px;
-  background: red;
 }

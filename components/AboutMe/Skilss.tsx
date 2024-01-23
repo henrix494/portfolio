@@ -1,36 +1,39 @@
-"use client";
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import "./movingNoise.css";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useInView } from "react-intersection-observer";
 
-gsap.registerPlugin(ScrollTrigger);
+const useSkillInView = () => {
+  return useInView({
+    threshold: 1,
+    delay: 0,
+  });
+};
 
 const SkillComponent = ({ skill }: any) => {
-  const skillRef = useRef(null);
-
-  useGSAP(() => {
-    const skillAnimation = gsap.timeline({
-      scrollTrigger: {
-        trigger: skillRef.current,
-        toggleActions: "play reset reset reset",
-      },
-    });
-
-    skillAnimation.to(skillRef.current, {
-      width: `${skill.percent}%`,
-      opacity: 1,
-      duration: 1,
-    });
-  });
+  const { ref, inView } = useSkillInView();
+  const { ref: hiddenRef, inView: hiddenInView } = useSkillInView(); // Create a separate ref for the second bar
 
   return (
     <div className="skills flex flex-col text-white items-center text-center">
+      <div></div>
       <div className="skill-title">{skill.title}</div>
 
-      <div className="bar ">
-        <div ref={skillRef} className={`bar-color  bg-[black]  `}></div>
+      {/* First Bar */}
+      <div className="bar max-md:hidden">
+        <div
+          ref={ref}
+          className={`bar-color ${inView ? "animate-width" : ""}`}
+          style={{ width: inView ? `${skill.percent}%` : "0%" }}
+        ></div>
+      </div>
+
+      {/* Second Bar */}
+      <div className="bar sm:hidden">
+        <div
+          ref={hiddenRef}
+          className={`bar-color ${hiddenInView ? "opacity-100" : "opacity-0"}`}
+          style={{ width: "99%" }}
+        ></div>
       </div>
     </div>
   );

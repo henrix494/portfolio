@@ -11,7 +11,7 @@ type Refs = {
   webdev: React.MutableRefObject<null>;
   webapp: React.MutableRefObject<null>;
   givesSol: React.MutableRefObject<null>;
-
+  img: React.MutableRefObject<null>;
   [key: string]: React.MutableRefObject<null>;
 };
 
@@ -22,6 +22,7 @@ export const useAnimation = () => {
     webdev: useRef(null),
     webapp: useRef(null),
     givesSol: useRef(null),
+    img: useRef(null),
   };
 
   useGSAP(
