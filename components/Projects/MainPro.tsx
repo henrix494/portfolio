@@ -45,8 +45,16 @@ const Scroll = () => {
         >
           <Projects />
         </div>
-
-        <div className="horizontal-panel">
+        <div
+          className="horizontal-panel lg:hidden"
+          style={{ height: "100vh", maxHeight: "100vh" }}
+        >
+          <MobilePro />
+        </div>
+        <div
+          className="horizontal-panel"
+          style={{ height: "100vh", maxHeight: "100vh" }}
+        >
           <Contact />
         </div>
       </section>
