@@ -121,7 +121,11 @@ export default function Contact() {
     width: "100vw", // 100% of the viewport width
     overflow: "hidden", // Optional: Hide overflow if necessary
   };
-  const { register, handleSubmit } = useForm<IFormInput>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
   return (
@@ -152,14 +156,18 @@ export default function Contact() {
             אמייל
           </web.label>
           <web.input
-            {...register("email", { required: true, maxLength: 20 })}
+            {...register("email", {
+              required: true,
+              pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+            })}
             id="email"
             name="email"
             className={` w-full  outline-none p-2 ${
               open
                 ? "border-b-[white] border-b-2 bg-black text-white"
                 : "border-b-[black] border-b-2 bg-white "
-            }`}
+            }
+            ${errors.email?.type && "border-b-[red]"}`}
           ></web.input>
           <web.label
             htmlFor="name"
@@ -170,18 +178,32 @@ export default function Contact() {
             שם
           </web.label>
           <web.input
+            {...register("name", { required: true })}
             id="name"
             name="name"
             className={`outline-none w-full p-2 ${
               open
                 ? "border-b-[white] border-b-2 bg-black text-white"
                 : "border-b-[black] border-b-2 bg-white "
-            }`}
+            }
+              ${errors.name?.type && "border-b-[red]"}
+            `}
           ></web.input>
-          <input
+          <button
             className={` cursor-pointer ${open ? "text-white" : "text-black"}`}
             type="submit"
-          />
+          >
+            שלח
+          </button>
+          {errors.email?.type == "required" && (
+            <web.div className={"text-[red]"}>אמייל חובה</web.div>
+          )}
+          {errors.email?.type == "pattern" && (
+            <web.div className={"text-[red]"}>אמייל לא תקין</web.div>
+          )}
+          {errors.name?.type == "required" && (
+            <web.div className={"text-[red]"}> נא הקלד שם </web.div>
+          )}
         </web.form>
       </web.div>
 
