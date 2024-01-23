@@ -35,16 +35,26 @@ const Scroll = () => {
 
   return (
     <>
-      <section className="horizontal-section " ref={horizontalSection}>
-        <div className="horizontal-panel  bg-white overflow-hidden max-xl:hidden ">
+      <section
+        className="horizontal-section max-lg:hidden"
+        ref={horizontalSection}
+      >
+        <div
+          className="horizontal-panel bg-white overflow-hidden max-xl:hidden"
+          style={{ height: "100vh", maxHeight: "100vh" }}
+        >
           <Projects />
         </div>
-        <div className="horizontal-panel lg:hidden  ">
-          <MobilePro />
-        </div>
-        <div className="horizontal-panel ">
+
+        <div className="horizontal-panel">
           <Contact />
         </div>
+      </section>
+
+      <section className=" lg:hidden">
+        <MobilePro />
+
+        <Contact />
       </section>
     </>
   );
