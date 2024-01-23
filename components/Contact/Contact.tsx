@@ -162,12 +162,13 @@ export default function Contact() {
             })}
             id="email"
             name="email"
-            className={` w-full  outline-none p-2 ${
+            style={errors.email?.type ? { borderBottom: "2px solid red" } : {}}
+            className={` w-full outline-none p-2 ${
               open
                 ? "border-b-[white] border-b-2 bg-black text-white"
                 : "border-b-[black] border-b-2 bg-white "
             }
-            ${errors.email?.type && "border-b-[red]"}`}
+                `}
           ></web.input>
           <web.label
             htmlFor="name"
@@ -178,6 +179,7 @@ export default function Contact() {
             שם
           </web.label>
           <web.input
+            style={errors.name?.type ? { borderBottom: "2px solid red" } : {}}
             {...register("name", { required: true })}
             id="name"
             name="name"
@@ -186,7 +188,6 @@ export default function Contact() {
                 ? "border-b-[white] border-b-2 bg-black text-white"
                 : "border-b-[black] border-b-2 bg-white "
             }
-              ${errors.name?.type && "border-b-[red]"}
             `}
           ></web.input>
           <button
