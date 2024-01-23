@@ -7,12 +7,13 @@ import Contact from "../Contact/Contact";
 import useIsomorphicLayoutEffect from "./isomorphicLayout";
 import Projects from "./Projects";
 import { MobilePro } from "./MobilePro";
+
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 const Scroll = () => {
-  const horizontalSection = useRef<HTMLElement | undefined>(null);
+  const horizontalSection = useRef<HTMLElement>(null);
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -25,7 +26,6 @@ const Scroll = () => {
           pin: true,
           start: "top top",
           end: "+=200%",
-
           scrub: 2,
         },
       });
