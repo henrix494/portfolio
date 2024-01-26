@@ -87,7 +87,7 @@ export const MobilePro = () => {
           } text-center text-8xl overflow-hidden relative transition-all duration-[1s] mt-10 `}
         >
           <Image
-            src={"/scrnli_15-1-2024_20-32-50.png"}
+            src={"/scrnli_26-1-2024_21-29-49.png"}
             width={400}
             height={400}
             alt="screen"

@@ -5,3 +5,13 @@
     rgba(0, 0, 0, 0) 100%
   );
 }
+
+@media screen and (max-width: 767px) {
+  .bg-gradient-conic {
+    background: radial-gradient(
+      35.55% 75.34% at 50% 0%,
+      rgba(94, 176, 239, 0) -50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+}
