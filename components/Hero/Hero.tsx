@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollDown from "./ScrollDown";
 import LeftSide from "./LeftSide";
-import Box from "./Fog";
+import "./fog.css";
 export default function Hero() {
   const lineRefTop = useRef(null);
   const lineRefBottom = useRef(null);
@@ -15,11 +15,11 @@ export default function Hero() {
   }, [lineRefTop, lineRefBottom]);
 
   return (
-    <>
-      <div className="  relative text-white text-[12rem] max-lg:text-[4rem] flex flex-col justify-center items-center h-screen bg-[black]  ">
+    <div className="bg-[url('/bg_hero.png')]  bg-black  ">
+      <div className="  bg relative text-white text-[12rem] max-lg:text-[4rem] flex flex-col justify-center items-center h-screen  bg-gradient-conic ">
         <div
           ref={lineRefTop}
-          className="z-40 bg-[white] h-[2px] w-0 lg:max-w-[55%]"
+          className="z-40 bg-[white] h-[2px] w-0 lg:max-w-[55%] "
         ></div>
         <h2>מפתח תוכנה</h2>
         <h1 className="text-center">Full Stack</h1>
@@ -31,6 +31,6 @@ export default function Hero() {
 
       <ScrollDown />
       <LeftSide />
-    </>
+    </div>
   );
 }

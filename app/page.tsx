@@ -6,8 +6,11 @@ import Scroll from "@/components/Projects/MainPro";
 export default function Home() {
   return (
     <main className="">
-      <NavBar />
-      <Hero />
+      <div className=" h-screen bg-red">
+        <NavBar />
+
+        <Hero />
+      </div>
       <AboutMe />
 
       <Scroll />
