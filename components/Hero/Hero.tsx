@@ -21,8 +21,10 @@ export default function Hero() {
           ref={lineRefTop}
           className="z-40 bg-[white] h-[2px] w-0 lg:max-w-[55%] "
         ></div>
-        <h2>מפתח תוכנה</h2>
-        <h1 className="text-center">Full Stack</h1>
+        <div className="bg-gradient-to-l from-[#FFFFFF]   to-[#71717A] text-transparent bg-clip-text">
+          <h2>מפתח תוכנה</h2>
+          <h1 className="text-center">Full Stack</h1>
+        </div>
         <div
           ref={lineRefBottom}
           className="z-40 bg-[white] h-[2px] w-0 lg:max-w-[55%]"
