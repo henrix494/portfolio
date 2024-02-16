@@ -46,7 +46,7 @@ export const education: Education[] = [
   {
     id: "ede1",
     imageSrc: "/ben.jpg",
-    time: "2021 - 2022",
+    time: "2018 - 2021",
     title: "בן גוריון",
     field: "מדעי המחשב",
   },
