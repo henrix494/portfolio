@@ -9,7 +9,7 @@ import { useInView } from "react-intersection-observer";
 import { Nodes, Materials } from "@/types/types";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ColorRepresentation } from "three";
-
+import Load from "../Load/Load";
 type ModelProps = {
   open: boolean;
   hinge: any;
@@ -106,8 +106,10 @@ interface IFormInput {
   name: string;
   email: string;
 }
-export default function Contact() {
+const Contact = () => {
   const [open, setOpen] = useState(false);
+  const [status, setStatus] = useState<number | null>(null);
+  const [isLoad, setIsLoad] = useState(false);
   // We turn this into a spring animation that interpolates between 0 and 1
   const props = useSpring({ open: Number(open) });
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.5 });
@@ -126,7 +128,19 @@ export default function Contact() {
     handleSubmit,
     formState: { errors },
   } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+    setIsLoad(true);
+    const res = await fetch("/api/createMSG", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    setIsLoad(false);
+    const message = await res;
+    setStatus(message.status);
+  };
 
   return (
     <web.div
@@ -206,6 +220,19 @@ export default function Contact() {
           {errors.name?.type == "required" && (
             <web.div className={"text-[red]"}> נא הקלד שם </web.div>
           )}
+          {status == 200 && (
+            <web.div className=" text-green-500 bg">
+              ההודעה נשלחה בהצלחה
+            </web.div>
+          )}
+          {status == 400 && (
+            <web.div className="  ">
+              <web.p className="text-red-400">
+                קיים משתמש עם האימייל הזה! נסה שוב!
+              </web.p>
+            </web.div>
+          )}
+          {isLoad && <Load />}
         </web.form>
       </web.div>
 
@@ -252,4 +279,5 @@ export default function Contact() {
       </web.div>
     </web.div>
   );
-}
+};
+export default Contact;

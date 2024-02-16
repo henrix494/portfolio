@@ -1,9 +1,10 @@
 import Hero from "../components/Hero/Hero";
 import NavBar from "@/components/Navbar/NavBar";
 import AboutMe from "@/components/AboutMe/AboutMe";
-
+import { sql } from "@vercel/postgres";
 import Scroll from "@/components/Projects/MainPro";
-export default function Home() {
+
+const Home = async () => {
   return (
     <main className="">
       <div className=" h-screen bg-red">
@@ -16,4 +17,6 @@ export default function Home() {
       <Scroll />
     </main>
   );
-}
+};
+
+export default Home;
